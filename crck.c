@@ -40,6 +40,8 @@
  */
 
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 #define VERSION 20		/*  Version 2.0				*/
 
@@ -52,10 +54,11 @@ int tflag = 0;			/*  CP/M text file			*/
 int uflag = 0;			/*  Unix file				*/
 int iflag = 0;			/*  ITS Binary file			*/
 
+void docrck(char *name);
 unsigned short crck();		/*  CRC calculation function		*/
 
 
-main(argc, argv)
+int main(argc, argv)
 int argc;
 char **argv;
 {
@@ -115,7 +118,7 @@ usage:
 	exit(-100);
 }
 
-docrck(name) /* Calculate and print a "CRCK" for stdin stream. */
+void docrck(name) /* Calculate and print a "CRCK" for stdin stream. */
 char *name;
 {
 	int icount;
@@ -124,7 +127,7 @@ char *name;
 	unsigned char crbuf[SECSIZ];
 	unsigned char *bufend = crbuf + SECSIZ;
 
-	register c;
+	register int c;
 	register unsigned char *cp;
 
 	oldcrck = 0;
@@ -156,7 +159,7 @@ char *name;
 	    }
 
 	    if (cp != crbuf) { /* EOF during partial sector  */
-		register fillcnt;
+		register int fillcnt;
 
 		/*  Fill from current pointer pos to end of buffer  */
 		if (tflag)
@@ -194,7 +197,7 @@ char *name;
 unsigned short
 crck(crbuf, count, ldcrc)  /* uses algorithm of CRCK.COM prior to V5.0 */
 register unsigned char *crbuf;
-register count;
+register int count;
 register unsigned short ldcrc;
 {
 /*
