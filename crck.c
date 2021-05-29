@@ -32,6 +32,11 @@
  *
  *
  *----------------------------------------------------------------------------
+ *    Version 2.1  Cleanup by Glitch Works, LLC for modern C compilers,
+ *                 http://www.glitchwrks.com/
+ *
+ *                 Added Makefile, patches against original code.
+ *
  *    Version 2.0  mods by Ben Goldfarb (decvax!ucf-cs!goldfarb or
  *                                            Goldfarb.ucf-cs @ Rand-Relay)
  *
@@ -43,7 +48,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#define VERSION 20		/*  Version 2.0				*/
+#define VERSION 21		/*  Version 2.1				*/
 
 
 #define SECSIZ	128		/*  CP/M sector size for fill  		*/
