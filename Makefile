@@ -6,9 +6,9 @@ crck: crck.c
 	cc -o crck crck.c
 
 install: crck
-	mkdir -p $(DESTDIR)$(PREFIX)/bin
-	install -m 755 crck $(BINDIR)
-	install -m 644 crck.1 $(MANDIR)
+	mkdir -p $(DESTDIR)$(BINDIR)
+	install -m 755 crck $(DESTDIR)$(BINDIR)
+	install -m 644 crck.1 $(DESTDIR)$(MANDIR)
 
 uninstall:
 	rm -f $(BINDIR)/crck $(MANDIR)/crck.1
