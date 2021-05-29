@@ -11,7 +11,7 @@ install: crck
 	install -m 644 crck.1 $(MANDIR)
 
 uninstall:
-	rm -f $(BINDIR)/crck $(MANDIR)/lbrate.1
+	rm -f $(BINDIR)/crck $(MANDIR)/crck.1
 
 clean:
 	rm -f crck
